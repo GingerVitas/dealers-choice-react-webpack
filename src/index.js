@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import BooksTable from './components/BooksTable'
+import AuthorTable from './components/AuthorTable'
 
 class Root extends Component {
   constructor(){
@@ -10,6 +12,7 @@ class Root extends Component {
       authors: [],
       display: []
     }
+    this.displaySelector = this.displaySelector.bind(this)
   }
 
   async componentDidMount() {
@@ -18,9 +21,15 @@ class Root extends Component {
     this.setState({books, authors})
   }
 
+  displaySelector(arr) {
+    this.setState({display: arr})
+  }
+
   render() {
     const books = this.state.books;
     const authors = this.state.authors;
+    const display = this.state.display;
+    const displaySelector = this.displaySelector;
 
 
     return (
@@ -30,12 +39,16 @@ class Root extends Component {
         </div>
         <div id="navbar">
           <ul>
-            <li>Book List</li>
-            <li>Author List</li>
+            <li onClick={()=> displaySelector(books)}>Book List</li>
+            <li onClick={()=> displaySelector(authors)}>Author List</li>
           </ul>
         </div>
         <div id="listContainer">
-
+          {
+            display === books ? <BooksTable books={books} />
+            : display === authors ? <AuthorTable authors={authors} />
+            : []
+          }
         </div>
       </div>
     )

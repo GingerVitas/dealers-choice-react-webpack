@@ -5,7 +5,11 @@ const Author = require('../../db/Author')
 router.get('/', async(req, res, next) => {
   try{
     res.send(await Book.findAll({
-      include: [{model: Author, attributes: ['firstName', 'lastName']}]
+      include: [{
+        model: Author, 
+        attributes: ['firstName', 'lastName'],
+        order: ['id']
+      }]
     })
     )}
   catch(ex){
