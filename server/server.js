@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const syncAndSeed = require('../db/seed')
 
-app.use('/api/books', require('./routes/books.js'))
+app.use('/api/books', require('./routes/books.js'));
+app.use('/api/authors', require('./routes/authors.js'));
 
 
 const start = async () => {
