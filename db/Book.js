@@ -15,16 +15,16 @@ const Book = db.define('book', {
     }
   },
   price: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     allowNull: false,
   },
   genre: {
-    type: Sequelize.ENUM('Biography', 'Thriller', 'Sci-Fi', 'Young Adult', 'Mystery', 'Romance'),
+    type: Sequelize.ENUM('Biography', 'Thriller', 'Sci-Fi', 'Young Adult', 'Mystery', 'Romance', 'Fantasy'),
   },
-  used: {
+  isUsed: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    defaultValue: true,
+    defaultValue: false,
   }
 });
 
