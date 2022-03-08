@@ -28,4 +28,11 @@ const Book = db.define('book', {
   }
 });
 
+Book.generateRandom = function() {
+  const random = Math.ceil(Math.random()*500)
+  const title = `${random}: A New Novel`;
+  const fakeAuthorId = Math.floor(Math.random()*6) + 1;
+  return this.create({title, authorId: fakeAuthorId, price: 25.00})
+}
+
 module.exports = Book;

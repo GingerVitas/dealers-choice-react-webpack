@@ -24,4 +24,13 @@ router.get('/:id', async(req, res, next)=>{
   }
 })
 
+router.post('/new', async(req, res, next) => {
+  try{
+    res.status(201).send(await Book.generateRandom())
+  }
+  catch(ex){
+    next(ex)
+  }
+})
+
 module.exports = router
