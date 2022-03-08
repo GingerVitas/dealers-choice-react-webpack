@@ -28,9 +28,20 @@ router.get('/:id', async(req, res, next)=>{
   }
 })
 
-router.post('/new', async(req, res, next) => {
+router.post('/', async(req, res, next) => {
   try{
     res.status(201).send(await Book.generateRandom())
+  }
+  catch(ex){
+    next(ex)
+  }
+})
+
+router.delete('/:id', async(req, res, next)=>{
+  try{
+    const book = await Book.findByPk(req.params.id)
+    await book.destroy()
+    res.sendStatus(204);
   }
   catch(ex){
     next(ex)
