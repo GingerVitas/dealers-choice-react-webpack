@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import BooksTable from './components/BooksTable'
 import AuthorTable from './components/AuthorTable'
 import SingleAuthor from './components/SingleAuthor';
+import '../public/main.css'
 
 class Root extends Component {
   constructor(){
@@ -51,10 +52,7 @@ class Root extends Component {
   }
 
   render() {
-    const books = this.state.books;
-    const authors = this.state.authors;
-    const display = this.state.display;
-    const selectedAuthor = this.state.selectedAuthor;
+    const { books, authors, display, selectedAuthor } = this.state;
     const displaySelector = this.displaySelector;
     const addBook = this.addBook;
     const deleteBook = this.deleteBook;
@@ -74,7 +72,7 @@ class Root extends Component {
         </div>
         <div id="listContainer">
           {
-            !!selectedAuthor && selectedAuthor.id ? <SingleAuthor author={selectedAuthor}/>
+            selectedAuthor.id ? <SingleAuthor author={selectedAuthor}/>
             : display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook}/>
             : display === authors ? <AuthorTable authors={authors} authorSelector={authorSelector}/>
             : []
