@@ -47,7 +47,6 @@ class Root extends Component {
 
   async authorSelector(id) {
     const author = (await axios.get(`/api/authors/${id}`)).data;
-    console.log(author)
     this.setState({selectedAuthor: author})
   }
 
