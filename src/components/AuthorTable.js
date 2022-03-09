@@ -3,6 +3,7 @@ import AuthorRow from './AuthorRow'
 
 const AuthorTable = props => {
   const authors = props.authors;
+  const authorSelector = props.authorSelector
 
   return (
     <table>
@@ -11,7 +12,7 @@ const AuthorTable = props => {
           <th>Author</th>
           <th>Available Titles</th>
         </tr>
-        {authors.map(author => <AuthorRow key={author.id} author={author} />)}
+        {authors.map(author => <AuthorRow key={author.id} author={author} authorSelector={authorSelector}/>)}
       </tbody>
     </table>
   )

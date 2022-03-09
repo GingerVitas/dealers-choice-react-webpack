@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import BooksTable from './components/BooksTable'
 import AuthorTable from './components/AuthorTable'
+import SingleAuthor from './components/SingleAuthor';
 
 class Root extends Component {
   constructor(){
@@ -10,11 +11,13 @@ class Root extends Component {
     this.state = {
       books: [],
       authors: [],
-      display: []
+      display: [],
+      selectedAuthor: {}
     }
     this.displaySelector = this.displaySelector.bind(this)
     this.addBook = this.addBook.bind(this);
     this.deleteBook = this.deleteBook.bind(this);
+    this.authorSelector = this.authorSelector.bind(this);
   }
 
   async componentDidMount() {
@@ -24,12 +27,11 @@ class Root extends Component {
   }
 
   async addBook () {
-    const book = (await axios.post('/api/books')).data;
-    const books = (await axios.get('/api/books')).data;
-    console.log(book)
-    console.log(books)
-    this.setState({books, display: []});
-    this.setState({display: books})
+    await axios.post('/api/books')
+    const books = (await axios.get('/api/books')).data
+    const authors = (await axios.get('api/authors')).data
+    this.setState({books, authors, display: []});
+    this.setState( {display: this.state.books} )
   }
 
   async deleteBook(id) {
@@ -40,33 +42,42 @@ class Root extends Component {
   }
 
   displaySelector(arr) {
-    this.setState({display: arr})
+    this.setState({display: arr, selectedAuthor: {}})
+  }
+
+  async authorSelector(id) {
+    const author = (await axios.get(`/api/authors/${id}`)).data;
+    console.log(author)
+    this.setState({selectedAuthor: author})
   }
 
   render() {
     const books = this.state.books;
     const authors = this.state.authors;
     const display = this.state.display;
+    const selectedAuthor = this.state.selectedAuthor;
     const displaySelector = this.displaySelector;
     const addBook = this.addBook;
     const deleteBook = this.deleteBook;
+    const authorSelector = this.authorSelector
 
 
     return (
       <div id="main">
         <div>
-          <h1>ACME Book Inventory</h1>
+          <h1>ACME Book Store</h1>
         </div>
         <div id="navbar">
           <ul>
-            <li onClick={()=> displaySelector(books)}>Book List</li>
-            <li onClick={()=> displaySelector(authors)}>Author List</li>
+            <li onClick={()=>  displaySelector(books)}>Book List</li>
+            <li onClick={()=>  displaySelector(authors)}>Author List</li>
           </ul>
         </div>
         <div id="listContainer">
           {
-            display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook}/>
-            : display === authors ? <AuthorTable authors={authors} />
+            !!selectedAuthor && selectedAuthor.id ? <SingleAuthor author={selectedAuthor}/>
+            : display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook}/>
+            : display === authors ? <AuthorTable authors={authors} authorSelector={authorSelector}/>
             : []
           }
         </div>

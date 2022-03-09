@@ -17,7 +17,7 @@ router.get('/', async(req, res, next) => {
 router.get('/:id', async(req, res, next)=> {
   try{
     res.send(await Author.findByPk(req.params.id, {
-      attributes: ['firstName', 'lastName'],
+      attributes: ['id', 'firstName', 'lastName'],
       include: [{model: Book, attributes: ['title', 'price', 'genre', 'isUsed']}]
     }))
   }
