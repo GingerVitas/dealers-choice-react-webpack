@@ -5,8 +5,8 @@ const AuthorRow = props => {
   const authorSelector = props.authorSelector;
 
   return(
-    <tr onClick={()=> authorSelector(author.id)}>
-      <td>{author.firstName} {author.lastName}</td>
+    <tr>
+      <td className='navItem' onClick={()=> authorSelector(author.id)}>{author.firstName} {author.lastName}</td>
       <td>{author.books.length}</td>
     </tr>
   

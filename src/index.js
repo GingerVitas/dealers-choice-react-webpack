@@ -62,7 +62,7 @@ class Root extends Component {
     return (
       <div id="main">
         <div>
-          <h1>ACME Book Store</h1>
+          <h1 className='navItem' onClick={()=> displaySelector([])}>ACME Book Store</h1>
         </div>
         <div id="navbar">
           <ul>
@@ -75,7 +75,7 @@ class Root extends Component {
             selectedAuthor.id ? <SingleAuthor author={selectedAuthor}/>
             : display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook}/>
             : display === authors ? <AuthorTable authors={authors} authorSelector={authorSelector}/>
-            : []
+            : <h2>Welcome to the store!</h2>
           }
         </div>
       </div>

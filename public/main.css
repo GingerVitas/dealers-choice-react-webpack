@@ -52,7 +52,7 @@ td>img {
   cursor: pointer;
 }
 
-.navItem:hover, .button:hover {
+.navItem:hover, .addButton:hover {
   color: blue;
 }
 
