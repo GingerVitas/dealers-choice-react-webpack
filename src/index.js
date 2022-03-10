@@ -73,7 +73,7 @@ class Root extends Component {
         <div id="listContainer">
           {
             selectedAuthor.id ? <SingleAuthor author={selectedAuthor}/>
-            : display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook}/>
+            : display === books ? <BooksTable books={books} addBook={addBook} deleteBook={deleteBook} authorSelector={authorSelector}/>
             : display === authors ? <AuthorTable authors={authors} authorSelector={authorSelector}/>
             : <h2>Welcome to the store!</h2>
           }

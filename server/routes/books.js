@@ -7,7 +7,7 @@ router.get('/', async(req, res, next) => {
     res.send(await Book.findAll({
       include: [{
         model: Author, 
-        attributes: ['firstName', 'lastName'],
+        attributes: ['id', 'firstName', 'lastName'],
       }],
       order: ['authorId']
     })

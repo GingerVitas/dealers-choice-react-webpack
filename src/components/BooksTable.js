@@ -1,10 +1,8 @@
 import React from 'react';
 import BooksRow from './BooksRow'
 
-const BooksTable = props => {
-  const books = props.books;
-  const addBook = props.addBook;
-  const deleteBook = props.deleteBook;
+const BooksTable = ({ books, addBook, deleteBook, authorSelector }) => {
+
 
   return (
     <div id='bookTable'>
@@ -18,7 +16,7 @@ const BooksTable = props => {
             <th>Price</th>
             <th>Genre</th>
           </tr>
-          {books.map(book => <BooksRow key={book.id} book={book} deleteBook={deleteBook}/>)}
+          {books.map(book => <BooksRow key={book.id} book={book} deleteBook={deleteBook} authorSelector={authorSelector}/>)}
         </tbody>
       </table>
     </div>
