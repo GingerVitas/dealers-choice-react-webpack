@@ -23,3 +23,16 @@ h2 {
   list-style-type: none;
 }
 
+table {
+  margin: auto;
+  text-align: center;
+}
+
+tr {
+  padding: 2rem;
+}
+
+td {
+  min-width: 100px;
+}
+
