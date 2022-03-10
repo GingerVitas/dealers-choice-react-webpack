@@ -7,7 +7,7 @@ const BooksTable = props => {
   const deleteBook = props.deleteBook;
 
   return (
-    <div>
+    <div id='bookTable'>
       <button onClick={()=> addBook()}>Add a Book!</button>
       <table>
         <tbody>
