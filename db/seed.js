@@ -20,9 +20,9 @@ const syncAndSeed = async() => {
     await Promise.all([
       Book.create({title: 'Harry Potter and the Sorcerer\'s Stone', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/sorcerers_stone_cover.jpeg' }),
       Book.create({title: 'Harry Potter and the Chamber of Secrets', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/chamber_of_secrets_cover.jpeg'}),
-      Book.create({title: 'Harry Potter and the Prisoner of Azkaban', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/prisoner_of_Azkaban_cover.jpg'}),
+      Book.create({title: 'Harry Potter and the Prisoner of Azkaban', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/prisoner_of_azkaban_cover.jpg'}),
       Book.create({title: 'Harry Potter and the Goblet of Fire', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/goblet_of_fire_cover.jpg'}),
-      Book.create({title: 'Harry Potter and the Order of the Phoenix', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/order_of_the_Phoenix_cover.jpg'}),
+      Book.create({title: 'Harry Potter and the Order of the Phoenix', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/order_of_the_phoenix_cover.jpg'}),
       Book.create({title: 'Harry Potter and the Half-Blood Prince', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/half_blood_prince_cover.jpeg'}),
       Book.create({title: 'Harry Potter and the Deathly Hallows', price: 12.99, genre: 'Young Adult', authorId: rowling.id, imageUrl: 'public/images/deathly_hallows_cover.jpg'}),
       Book.create({title: 'The Hobbit', price: 16.99, genre: 'Fantasy', authorId: tolkien.id, imageUrl: 'public/images/the_hobbit_cover.jpeg'}),
