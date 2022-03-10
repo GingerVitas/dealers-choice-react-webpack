@@ -8,8 +8,8 @@ router.get('/', async(req, res, next) => {
       include: [{
         model: Author, 
         attributes: ['firstName', 'lastName'],
-        order: ['id']
-      }]
+      }],
+      order: ['authorId']
     })
     )}
   catch(ex){
