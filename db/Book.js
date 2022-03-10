@@ -30,7 +30,7 @@ const Book = db.define('book', {
   imageUrl: {
     type: Sequelize.STRING,
     allowNull: false,
-    defaultValue: 'public/placeholder.jpg'
+    defaultValue: 'public/images/placeholder_cover.jpeg'
   }
 });
 

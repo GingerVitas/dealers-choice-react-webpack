@@ -6,7 +6,7 @@ const BooksRow = props => {
 
   return (
     <tr>
-      <td><img src={book.coverImage} /></td>
+      <td><img src={book.imageUrl} /></td>
       <td>{book.title}</td>
       <td>{book.author.firstName} {book.author.lastName}</td>
       <td>{book.price}</td>
