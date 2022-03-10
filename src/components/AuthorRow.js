@@ -12,5 +12,4 @@ const AuthorRow = props => {
   
   )
 }
-
 export default AuthorRow
