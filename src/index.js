@@ -56,7 +56,7 @@ class Root extends Component {
     const displaySelector = this.displaySelector;
     const addBook = this.addBook;
     const deleteBook = this.deleteBook;
-    const authorSelector = this.authorSelector
+    const authorSelector = this.authorSelector;
 
 
     return (
@@ -66,8 +66,8 @@ class Root extends Component {
         </div>
         <div id="navbar">
           <ul>
-            <li onClick={()=>  displaySelector(books)}>Book List</li>
-            <li onClick={()=>  displaySelector(authors)}>Author List</li>
+            <li className='navItem' onClick={()=>  displaySelector(books)}>Book List</li>
+            <li className='navItem' onClick={()=>  displaySelector(authors)}>Author List</li>
           </ul>
         </div>
         <div id="listContainer">

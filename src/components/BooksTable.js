@@ -8,7 +8,7 @@ const BooksTable = props => {
 
   return (
     <div id='bookTable'>
-      <button onClick={()=> addBook()}>Add a Book!</button>
+      <button className='addButton' onClick={()=> addBook()}>Add a Book!</button>
       <table>
         <tbody>
           <tr>

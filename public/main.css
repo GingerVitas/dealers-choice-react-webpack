@@ -47,3 +47,15 @@ td>img {
 #bookTable {
   text-align: center;
 }
+
+.navItem, .removeButton, .addButton {
+  cursor: pointer;
+}
+
+.navItem:hover, .button:hover {
+  color: blue;
+}
+
+.removeButton:hover {
+  color:red;
+}
