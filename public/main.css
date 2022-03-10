@@ -30,9 +30,17 @@ table {
 
 tr {
   padding: 2rem;
+  max-height: 200px;
 }
 
 td {
   min-width: 100px;
+  max-width: 200px;
+  max-height: 200px;
+  word-wrap: normal;
+}
+
+td>img {
+  max-width: 100%;
 }
 

@@ -18,7 +18,7 @@ router.get('/:id', async(req, res, next)=> {
   try{
     res.send(await Author.findByPk(req.params.id, {
       attributes: ['id', 'firstName', 'lastName'],
-      include: [{model: Book, attributes: ['title', 'price', 'genre', 'isUsed']}]
+      include: [{model: Book, attributes: ['title', 'price', 'genre', 'imageUrl']}]
     }))
   }
   catch(ex){
